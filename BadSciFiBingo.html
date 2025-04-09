@@ -1,0 +1,230 @@
+<html>
+    <head>
+        <style>
+            html {
+                background-color: black;
+                color: white;
+                font-family: sans-serif;
+                font-size: 2.5vw;
+            }
+            .title {
+                font-size: 5vw;
+                display: flex;
+                width: 100%;
+                place-content: center;
+                margin-top: 3vw;
+                margin-bottom: 3vw;
+            }
+            .board {
+                width: 90vmin;
+                height: 90vmin;
+                margin: auto;
+                display: grid;
+                grid-template:
+                    "aa ab ac ad ae"
+                    "ba bb bc bd be"
+                    "ca cb cc cd ce"
+                    "da db dc dd de"
+                    "ea eb ec ed ee";
+                grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+                grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+                gap: 1vw;
+            }
+            .cell {
+                border-radius: 15%;
+                overflow: hidden;
+                color: black;
+                background-color: #ffffff;
+                padding: 5%;
+                user-select: none;
+            }
+            .cell label {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+            }
+            .cell input[type="checkbox"] {
+                display: none;
+            }
+            .cell input[type="checkbox"]:checked + label {
+                background-color: #8da0c5;
+            }
+        </style>
+        <script>
+            function shuffle(array) {
+                let currentIndex = array.length;
+
+                // While there remain elements to shuffle...
+                while (currentIndex != 0) {
+
+                    // Pick a remaining element...
+                    let randomIndex = Math.floor(Math.random() * currentIndex);
+                    currentIndex--;
+
+                    // And swap it with the current element.
+                    [array[currentIndex], array[randomIndex]] = [
+                    array[randomIndex], array[currentIndex]];
+                }
+            }
+
+            function initializeBoard() {
+                let choices = [
+                    "Inconsistent Time Passage",
+                    "Misleading Poster",
+                    "Stock Footage",
+                    "Bad Green Screen",
+                    "Famous Landmark Destroyed",
+                    "Head Explosion",
+                    "Said Movie Name",
+                    "“Quantum”",
+                    "Multiple Movie Names",
+                    "Too Effective Weapon",
+                    "Eye that Change Colour",
+                    "Setup for Sequel",
+                    "Inconsistent Tech",
+                    "Zombies",
+                    "Blatant Plagiarism",
+                    "Boom Mic in Frame",
+                    "A Portal",
+                    "Fake News Cast",
+                    "Obvious Dubbing",
+                    "Year in the Title",
+                    "Horrible Acting",
+                    "Very Bad CG",
+                    "Inconsistent Scale",
+                    "Repeats in Credits",
+                    "Nips",
+                    "Inappropriate Soundtrack",
+                    "Unlimited Bullets",
+                    "Star Streaks",
+                    "Visible Electricity",
+                    "Superpowers",
+                    "Inappropriate title",
+                    "Drugs",
+                    "Bad Costume",
+                    "Padding for Time",
+                    "Techno-babble",
+                    "“Paradox”",
+                ];
+
+                shuffle(choices);
+
+                var allLabels = document.getElementsByTagName("label");
+                for (let i = 0; i < allLabels.length; ++i) {
+                    let label = allLabels[i];
+                    label.innerText = choices.pop();
+                }
+            }
+
+        </script>
+    </head>
+    <body onload="initializeBoard()">
+        <div class="title">Bad Sci-Fi Bingo</div>
+        <div class="board">
+            <div class="cell aa" style="grid-area: aa;">
+                <input type="checkbox" id="cell-aa">
+                <label for="cell-aa"></label>
+            </div>
+            <div class="cell ab" style="grid-area: ab;">
+                <input type="checkbox" id="cell-ab">
+                <label for="cell-ab"></label>
+            </div>
+            <div class="cell ac" style="grid-area: ac;">
+                <input type="checkbox" id="cell-ac">
+                <label for="cell-ac"></label>
+            </div>
+            <div class="cell ad" style="grid-area: ad;">
+                <input type="checkbox" id="cell-ad">
+                <label for="cell-ad"></label>
+            </div>
+            <div class="cell ae" style="grid-area: ae;">
+                <input type="checkbox" id="cell-ae">
+                <label for="cell-ae"></label>
+            </div>
+            <div class="cell ba" style="grid-area: ba;">
+                <input type="checkbox" id="cell-ba">
+                <label for="cell-ba"></label>
+            </div>
+            <div class="cell bb" style="grid-area: bb;">
+                <input type="checkbox" id="cell-bb">
+                <label for="cell-bb"></label>
+            </div>
+            <div class="cell bc" style="grid-area: bc;">
+                <input type="checkbox" id="cell-bc">
+                <label for="cell-bc"></label>
+            </div>
+            <div class="cell bd" style="grid-area: bd;">
+                <input type="checkbox" id="cell-bd">
+                <label for="cell-bd"></label>
+            </div>
+            <div class="cell be" style="grid-area: be;">
+                <input type="checkbox" id="cell-be">
+                <label for="cell-be"></label>
+            </div>
+            <div class="cell ca" style="grid-area: ca;">
+                <input type="checkbox" id="cell-ca">
+                <label for="cell-ca"></label>
+            </div>
+            <div class="cell cb" style="grid-area: cb;">
+                <input type="checkbox" id="cell-cb">
+                <label for="cell-cb"></label>
+            </div>
+            <div class="cell cc" style="grid-area: cc;">
+                <input type="checkbox" id="cell-cc">
+                <label for="cell-cc"></label>
+            </div>
+            <div class="cell cd" style="grid-area: cd;">
+                <input type="checkbox" id="cell-cd">
+                <label for="cell-cd"></label>
+            </div>
+            <div class="cell ce" style="grid-area: ce;">
+                <input type="checkbox" id="cell-ce">
+                <label for="cell-ce"></label>
+            </div>
+            <div class="cell da" style="grid-area: da;">
+                <input type="checkbox" id="cell-da">
+                <label for="cell-da"></label>
+            </div>
+            <div class="cell db" style="grid-area: db;">
+                <input type="checkbox" id="cell-db">
+                <label for="cell-db"></label>
+            </div>
+            <div class="cell dc" style="grid-area: dc;">
+                <input type="checkbox" id="cell-dc">
+                <label for="cell-dc"></label>
+            </div>
+            <div class="cell dd" style="grid-area: dd;">
+                <input type="checkbox" id="cell-dd">
+                <label for="cell-dd"></label>
+            </div>
+            <div class="cell de" style="grid-area: de;">
+                <input type="checkbox" id="cell-de">
+                <label for="cell-de"></label>
+            </div>
+            <div class="cell ea" style="grid-area: ea;">
+                <input type="checkbox" id="cell-ea">
+                <label for="cell-ea"></label>
+            </div>
+            <div class="cell eb" style="grid-area: eb;">
+                <input type="checkbox" id="cell-eb">
+                <label for="cell-eb"></label>
+            </div>
+            <div class="cell ec" style="grid-area: ec;">
+                <input type="checkbox" id="cell-ec">
+                <label for="cell-ec"></label>
+            </div>
+            <div class="cell ed" style="grid-area: ed;">
+                <input type="checkbox" id="cell-ed">
+                <label for="cell-ed"></label>
+            </div>
+            <div class="cell ee" style="grid-area: ee;">
+                <input type="checkbox" id="cell-ee">
+                <label for="cell-ee"></label>
+            </div>
+        </div>
+    </body>
+</html>
