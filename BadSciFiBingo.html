@@ -81,7 +81,37 @@
                 }
             }
 
+            function createBoardContent() {
+                const rows = ['a', 'b', 'c', 'd', 'e'];
+                const cols = ['a', 'b', 'c', 'd', 'e'];
+                const board = document.querySelector('.board');
+                board.innerHTML = ''; // Clear existing content if any
+
+                rows.forEach(row => {
+                    cols.forEach(col => {
+                        const id = `cell-${row}${col}`;
+                        const area = `${row}${col}`;
+
+                        const cell = document.createElement('div');
+                        cell.className = `cell ${area}`;
+                        cell.style.gridArea = area;
+                        cell.setAttribute('onclick', 'saveTicks()');
+
+                        const checkbox = document.createElement('input');
+                        checkbox.type = 'checkbox';
+                        checkbox.id = id;
+
+                        const label = document.createElement('label');
+                        label.setAttribute('for', id);
+
+                        cell.appendChild(checkbox);
+                        cell.appendChild(label);
+                        board.appendChild(cell);
+                    });
+                });
+            }
             function initializeBoard(force) {
+                createBoardContent();
                 let choices = JSON.parse(localStorage.getItem("choices"));
                 let ticks = JSON.parse(localStorage.getItem("ticks")) || [];
                 if (!choices || force)
@@ -165,106 +195,6 @@
     <body onload="initializeBoard()">
         <div class="title">Bad Sci-Fi Bingo<button class="reroll" onclick="initializeBoard(true)">Reroll</button></div>
         <div class="board">
-            <div onclick="saveTicks()" class="cell aa" style="grid-area: aa;">
-                <input type="checkbox" id="cell-aa">
-                <label for="cell-aa"></label>
-            </div>
-            <div onclick="saveTicks()" class="cell ab" style="grid-area: ab;">
-                <input type="checkbox" id="cell-ab">
-                <label for="cell-ab"></label>
-            </div>
-            <div onclick="saveTicks()" class="cell ac" style="grid-area: ac;">
-                <input type="checkbox" id="cell-ac">
-                <label for="cell-ac"></label>
-            </div>
-            <div onclick="saveTicks()" class="cell ad" style="grid-area: ad;">
-                <input type="checkbox" id="cell-ad">
-                <label for="cell-ad"></label>
-            </div>
-            <div onclick="saveTicks()" class="cell ae" style="grid-area: ae;">
-                <input type="checkbox" id="cell-ae">
-                <label for="cell-ae"></label>
-            </div>
-            <div onclick="saveTicks()" class="cell ba" style="grid-area: ba;">
-                <input type="checkbox" id="cell-ba">
-                <label for="cell-ba"></label>
-            </div>
-            <div onclick="saveTicks()" class="cell bb" style="grid-area: bb;">
-                <input type="checkbox" id="cell-bb">
-                <label for="cell-bb"></label>
-            </div>
-            <div onclick="saveTicks()" class="cell bc" style="grid-area: bc;">
-                <input type="checkbox" id="cell-bc">
-                <label for="cell-bc"></label>
-            </div>
-            <div onclick="saveTicks()" class="cell bd" style="grid-area: bd;">
-                <input type="checkbox" id="cell-bd">
-                <label for="cell-bd"></label>
-            </div>
-            <div onclick="saveTicks()" class="cell be" style="grid-area: be;">
-                <input type="checkbox" id="cell-be">
-                <label for="cell-be"></label>
-            </div>
-            <div onclick="saveTicks()" class="cell ca" style="grid-area: ca;">
-                <input type="checkbox" id="cell-ca">
-                <label for="cell-ca"></label>
-            </div>
-            <div onclick="saveTicks()" class="cell cb" style="grid-area: cb;">
-                <input type="checkbox" id="cell-cb">
-                <label for="cell-cb"></label>
-            </div>
-            <div onclick="saveTicks()" class="cell cc" style="grid-area: cc;">
-                <input type="checkbox" id="cell-cc">
-                <label for="cell-cc"></label>
-            </div>
-            <div onclick="saveTicks()" class="cell cd" style="grid-area: cd;">
-                <input type="checkbox" id="cell-cd">
-                <label for="cell-cd"></label>
-            </div>
-            <div onclick="saveTicks()" class="cell ce" style="grid-area: ce;">
-                <input type="checkbox" id="cell-ce">
-                <label for="cell-ce"></label>
-            </div>
-            <div onclick="saveTicks()" class="cell da" style="grid-area: da;">
-                <input type="checkbox" id="cell-da">
-                <label for="cell-da"></label>
-            </div>
-            <div onclick="saveTicks()" class="cell db" style="grid-area: db;">
-                <input type="checkbox" id="cell-db">
-                <label for="cell-db"></label>
-            </div>
-            <div onclick="saveTicks()" class="cell dc" style="grid-area: dc;">
-                <input type="checkbox" id="cell-dc">
-                <label for="cell-dc"></label>
-            </div>
-            <div onclick="saveTicks()" class="cell dd" style="grid-area: dd;">
-                <input type="checkbox" id="cell-dd">
-                <label for="cell-dd"></label>
-            </div>
-            <div onclick="saveTicks()" class="cell de" style="grid-area: de;">
-                <input type="checkbox" id="cell-de">
-                <label for="cell-de"></label>
-            </div>
-            <div onclick="saveTicks()" class="cell ea" style="grid-area: ea;">
-                <input type="checkbox" id="cell-ea">
-                <label for="cell-ea"></label>
-            </div>
-            <div onclick="saveTicks()" class="cell eb" style="grid-area: eb;">
-                <input type="checkbox" id="cell-eb">
-                <label for="cell-eb"></label>
-            </div>
-            <div onclick="saveTicks()" class="cell ec" style="grid-area: ec;">
-                <input type="checkbox" id="cell-ec">
-                <label for="cell-ec"></label>
-            </div>
-            <div onclick="saveTicks()" class="cell ed" style="grid-area: ed;">
-                <input type="checkbox" id="cell-ed">
-                <label for="cell-ed"></label>
-            </div>
-            <div onclick="saveTicks()" class="cell ee" style="grid-area: ee;">
-                <input type="checkbox" id="cell-ee">
-                <label for="cell-ee"></label>
-            </div>
         </div>
     </body>
 </html>
