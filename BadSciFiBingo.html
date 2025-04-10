@@ -136,7 +136,6 @@
                         "Eye that Change Colour",
                         "Setup for Sequel",
                         "Inconsistent Tech",
-                        "Zombies",
                         "Blatant Plagiarism",
                         "Boom Mic in Frame",
                         "A Portal",
@@ -163,13 +162,16 @@
                     ];
 
                     shuffle(choices);
+                    choices[12] = "Zombies"; // Freebie
                     localStorage.setItem("choices", JSON.stringify(choices));
                 }
 
-                var allLabels = document.getElementsByTagName("label");
+                var allLabels = [...document.getElementsByTagName("label")];
+                allLabels.sort(i => i.attributes["for"]);
+
                 for (let i = 0; i < allLabels.length; ++i) {
                     let label = allLabels[i];
-                    label.innerText = choices.pop();
+                    label.innerText = choices.shift();
                 }
 
                 var allCheckboxes = document.getElementsByTagName("input");
